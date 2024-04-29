@@ -1,9 +1,3 @@
-# from langchain.agents import create_csv_agent
-# from langchain.llms import OpenAI
-# from dotenv import load_dotenv
-# import os
-# import streamlit as st
-# from streamlit_extras.add_vertical_space import add_vertical_space
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
@@ -20,7 +14,7 @@ from langchain.llms import HuggingFaceHub
 
 # Sidebar contents
 with st.sidebar:
-    st.title('🤗💬 LLM Chat App on your PDF files')
+    st.title('🤗💬 LLM Chat App on your PDF files...')
     st.markdown('''
     ## About
     This app is an LLM-powered chatbot built using:
@@ -98,7 +92,7 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
-    st.header("Chat with multiple PDFs :books:")
+    st.header("Chat with multiple PDFs :books: दस्तावेज़ बॉट")
     user_question = st.text_input("Ask a question about your documents:")
     if user_question:
         handle_userinput(user_question)
@@ -125,34 +119,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# def main():
-#     load_dotenv()
-
-#     # Load the OpenAI API key from the environment variable
-#     if os.getenv("OPENAI_API_KEY") is None or os.getenv("OPENAI_API_KEY") == "":
-#         print("OPENAI_API_KEY is not set")
-#         exit(1)
-#     else:
-#         print("OPENAI_API_KEY is set")
-
-#     #st.set_page_config(page_title="Ask your CSV")
-#     #st.header("Ask your CSV 📈")
-
-#     csv_file = st.file_uploader("Upload a CSV file", type="csv")
-#     if csv_file is not None:
-
-#         agent = create_csv_agent(
-#             OpenAI(temperature=0), csv_file, verbose=True)
-
-#         user_question = st.text_input("Ask a question about your CSV: ")
-
-#         if user_question is not None and user_question != "":
-#             with st.spinner(text="In progress..."):
-#                 st.write(agent.run(user_question))
-
-
-# if __name__ == "__main__":
-#     main()
-
-
